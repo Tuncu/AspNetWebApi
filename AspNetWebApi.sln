@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstAspNetWebApi", "FirstAspNetWebApi\FirstAspNetWebApi.csproj", "{CBE43FE3-71F5-40F3-8D37-5A141DF24AB3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetWebApiRouting.ActionBasedRouting", "AspNetWebApiRouting.ActionBasedRouting\AspNetWebApiRouting.ActionBasedRouting.csproj", "{63F2BAF2-C918-45B9-9158-31549BA85DB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetWebApiRouting.AttributeBasedRouting", "AspNetWebApiRouting.AttributeBasedRouting\AspNetWebApiRouting.AttributeBasedRouting.csproj", "{D522E0E9-B6D6-4DCB-811C-3BBEA1A0F2B8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{CBE43FE3-71F5-40F3-8D37-5A141DF24AB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBE43FE3-71F5-40F3-8D37-5A141DF24AB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBE43FE3-71F5-40F3-8D37-5A141DF24AB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63F2BAF2-C918-45B9-9158-31549BA85DB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63F2BAF2-C918-45B9-9158-31549BA85DB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63F2BAF2-C918-45B9-9158-31549BA85DB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63F2BAF2-C918-45B9-9158-31549BA85DB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D522E0E9-B6D6-4DCB-811C-3BBEA1A0F2B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D522E0E9-B6D6-4DCB-811C-3BBEA1A0F2B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D522E0E9-B6D6-4DCB-811C-3BBEA1A0F2B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D522E0E9-B6D6-4DCB-811C-3BBEA1A0F2B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -6,7 +6,7 @@ using System.Web.Http;
 using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json.Serialization;
 
-namespace FirstAspNetWebApi
+namespace AspNetWebApiRouting.ActionBasedRouting
 {
     public static class WebApiConfig
     {
@@ -22,10 +22,9 @@ namespace FirstAspNetWebApi
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
+                routeTemplate: "api/{controller}/{action}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
-
         }
     }
 }

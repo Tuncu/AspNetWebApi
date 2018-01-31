@@ -7,34 +7,42 @@ using System.Web.Http;
 
 namespace FirstAspNetWebApi.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class ValuesController : ApiController
     {
-        // GET api/values
-        public IEnumerable<string> Get()
+        static List<string> degerler = new List<string>()
         {
-            return new string[] { "value1", "value2" };
+            "value0","value1","value2","value3"
+        };
+
+        // GET api/values
+        public IEnumerable<string> GetABC()//Metot Adı önemli değil önemli olan Ön Ek
+        {
+            return degerler;
         }
 
         // GET api/values/5
-        public string Get(int id)
+        public string Get(int id)//Aynı imzalı (Parametre) iki adet Get Öğesi olduğunda 500 hatası verir
         {
-            return "value";
+            return degerler[id];
         }
 
-        // POST api/values
+        // POST api/values  Content-type: application/json
         public void Post([FromBody]string value)
         {
+            degerler.Add(value);
         }
 
         // PUT api/values/5
         public void Put(int id, [FromBody]string value)
         {
+            degerler[id] = value;
         }
 
         // DELETE api/values/5
         public void Delete(int id)
         {
+            degerler.RemoveAt(id);
         }
     }
 }
