@@ -24,14 +24,14 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="surname" class="control-label col-md-2">Name</label>
+                            <label for="surname" class="control-label col-md-2">Surname</label>
                             <div class="col-md-10">
                                 @Html.TextBox("surname", "", new { @class = "form-control", placeholder = "Surname" })
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="gender" class="control-label col-md-2">Name</label>
+                            <label for="gender" class="control-label col-md-2">Gender</label>
                             <div class="col-md-10">
                                 @Html.DropDownList("gender",
                                new SelectListItem[]
@@ -45,7 +45,7 @@
 
 
                         <div class="form-group">
-                            <label for="salary" class="control-label col-md-2">Name</label>
+                            <label for="salary" class="control-label col-md-2">Salary</label>
                             <div class="col-md-10">
                                 @Html.TextBox("salary", "", new { @class = "form-control", placeholder = "Salary",type="number" })
                             </div>
@@ -55,13 +55,91 @@
                 </div>
             </div>
             <div class="panel-footer">
-                <button type="button" id="btnCreate" class="btn btn-success">Create</button>
+                <button type="button" id="btnCreate" class="btn btn-success" onclick="CreateEmployee()">Create</button>
             </div>
         </div>
     </div>
     <div class="col-md-6">
         <ul id="employees" class="list-group">
-
+            
         </ul>
     </div>
 </div>
+
+
+
+<script>
+    function LoadEmployees() {
+
+        var ul = $('#employees');
+        
+
+        $.ajax({
+            method: "GET",
+            url: "../api/employee"
+        }).done(function (response) {
+            //console.log(response);
+            
+
+            if (response == null)
+                return;
+
+            for (var i = 0; i < response.length; i++) {
+                var emp = response[i];
+
+                var li = $('<li class="list-group-item">' + emp.Name + ' ' + emp.Surname + ' (Gender : ' + emp.Gender + ' - Salary: ' + emp.Salary + '$)</li>');
+
+                ul.append(li);
+            }
+
+        }).fail(function () {
+            alert("Hata oluştu.")
+        });
+    }
+
+
+    function CreateEmployee() {
+        var name = $("#name").val();
+        var surname = $("#surname").val();
+        var gender = $("#gender").val();
+        var salary = $("#salary").val();
+
+        var emp = {
+            "name": name,
+            "surname": surname,
+            "salary": salary,
+            "gender": gender
+        };
+
+        $.ajax({
+            method: "POST",
+            url: "../api/employee",
+            type: "json",
+            data: emp
+        }).done(function (response,statusText,jqXHR) {
+            console.log(response);
+            console.log(statusText);
+            console.log(jqXHR);
+
+            if(jqXHR==201)
+            {
+                LoadEmployees();
+            }
+
+            console.log("status: " + jqXHR.status);
+            console.log("statusText: " + jqXHR.statusText);
+            console.log("location: "+jqXHR.getResponseHeader("location"))
+
+        }).fail(function () {
+            alert("Hata Oluştu");
+        })
+    }
+
+
+
+
+
+    $(function () {
+        LoadEmployees();
+    })
+</script>

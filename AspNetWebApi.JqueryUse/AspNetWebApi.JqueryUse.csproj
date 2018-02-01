@@ -122,6 +122,7 @@
       <DependentUpon>EmployeDBModel.edmx</DependentUpon>
       <LastGenOutput>EmployeDBModel.Context.cs</LastGenOutput>
     </Content>
+    <Content Include="EmployeDBModel.edmx.sql" />
     <Content Include="EmployeDBModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>EmployeDBModel.edmx</DependentUpon>
